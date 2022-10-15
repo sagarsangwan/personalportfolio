@@ -14,7 +14,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 from dotenv import load_dotenv
-
+from dotenv import load_dotenv
+import dj_database_url
 
 LOGIN_URL = '/accounts/login/'
 
@@ -37,7 +38,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sagar-sangwan.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -87,13 +88,16 @@ WSGI_APPLICATION = 'personalportfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': db_from_env,
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
