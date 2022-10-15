@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home | Sagar Sangwan {% endblock %}
+
+{% block content %}
+<style>
+    .talk-img {
+        height: 6%;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+<div class="container" style="margin-top: 80px;">
+    {% include "components/navbar.html" %}
+    <div class="row mt-5 text-center text-md-start">
+        <div class="col-md-6">
+            <p class="h1">
+                Sagar
+            </p>
+            <p class="h1 ps-5">
+                Sangwan
+            </p>
+            <p class="mt-5">
+                I don't know what I am doing, but I love python 🐍 <br>
+                and putting my efforts to be a B.tech graudate
+            </p>
+            <img class="talk-img mt-5" src="/static/images/let-talk.png" alt="">
+
+        </div>
+        <div class="col-md-6">
+            <img class="img-thumbnail" src="/static/images/sagar.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+{% endblock %}
