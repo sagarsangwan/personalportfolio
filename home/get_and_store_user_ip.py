@@ -1,4 +1,4 @@
-from ipaddress import ip_address
+
 from .models import UserIpAddress
 
 
@@ -38,14 +38,14 @@ def get_client_ip_add(request):
 
 
 def upload_user_ip(ip):
-    if UserIpAddress.objects.filter(ip_address=ip).exists:
-        current_user = UserIpAddress.objects.filter(ip_address=ip)
+    if UserIpAddress.objects.filter(user_ip=ip).exists():
+        current_user = UserIpAddress.objects.get(user_ip=ip)
         current_user.times_user_viewed += 1
         current_user.save()
         return "added successfully old user"
     else:
         UserIpAddress.objects.create(
-            ip_address=ip,
+            user_ip=ip,
             times_user_viewed=1
         )
         return "added successfully new user"
