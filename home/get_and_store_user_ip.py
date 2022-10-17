@@ -1,4 +1,5 @@
 
+from urllib import request
 from .models import UserIpAddress
 
 
@@ -37,15 +38,16 @@ def get_client_ip_add(request):
     return ip
 
 
-def upload_user_ip(ip):
+def upload_user_ip(ip, request):
     if UserIpAddress.objects.filter(user_ip=ip).exists():
         current_user = UserIpAddress.objects.get(user_ip=ip)
         current_user.times_user_viewed += 1
         current_user.save()
         return "added successfully old user"
     else:
+        ip_without_proxy = get_client_ip(request)
         UserIpAddress.objects.create(
-            user_ip=ip,
-            times_user_viewed=1
-        )
-        return "added successfully new user"
+            user_ip=ip_without_proxy,
+            times_user_viewed=1,
+            user_ip_without_proxy=ip)
+        return "added successfully new user and ip is {} and ip without proxy is {}".format(ip, ip_without_proxy)
