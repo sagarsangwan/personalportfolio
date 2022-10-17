@@ -44,6 +44,12 @@
         content: "\2023";
         padding-left: 12px;
     }
+
+    .scrollspy-example {
+        position: relative;
+        height: 300px;
+        overflow: auto;
+    }
 </style>
 {% include "components/navbar.html" %}
 <div class="container-fluid">
@@ -55,6 +61,8 @@
         <div class="col-12 col-md-10 col-lg-8">
             {% include "components/hero.html" %}
             {% include "components/about-me.html" %}
+
+            {% include "components/my-works.html" %}
 
         </div>
         <div class="col-1 col-lg-2 d-none d-md-block">
