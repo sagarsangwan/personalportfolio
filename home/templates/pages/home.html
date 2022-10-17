@@ -35,6 +35,10 @@
     .sidebar-left {}
 
     .sidebar-left ul {
+        margin-top: 60vh;
+    }
+
+    .sidebar-right a {
         margin-top: 45vh;
     }
 
@@ -54,18 +58,19 @@
 {% include "components/navbar.html" %}
 <div class="container-fluid">
     <div class="row">
-        <div class=" col-1 col-lg-2 d-none d-md-block ">
+        <div class=" col-1 col-xl-2 d-none d-md-block ">
 
             {% include "components/left-sidebar.html" %}
         </div>
-        <div class="col-12 col-md-10 col-lg-8">
+        <div class="col-12 col-md-10 col-xl-8">
             {% include "components/hero.html" %}
             {% include "components/about-me.html" %}
 
             {% include "components/my-works.html" %}
 
         </div>
-        <div class="col-1 col-lg-2 d-none d-md-block">
+        <div class="col-1 col-xl-2 d-none d-md-block">
+            {% include "components/right-sidebar.html" %}
         </div>
     </div>
 </div>
