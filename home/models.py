@@ -8,7 +8,7 @@ from django.db import models
 class UserIpAddress(models.Model):
     user_ip = models.CharField(max_length=100)
     user_ip_without_proxy = models.CharField(max_length=100)
-    date = models.DateField(auto_now_add=True)
+    datetime = models.DateTimeField(auto_now_add=True)
     times_user_viewed = models.IntegerField(default=0)
 
     def __str__(self):
