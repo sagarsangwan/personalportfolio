@@ -7,6 +7,9 @@
     body {
         background-color: #0a192f;
     }
+    .body-color{
+        background-color: #0a192f;
+    }
 
     .green-color {
         color: #64ffda;
@@ -29,7 +32,10 @@
     }
 
     .container-sm {
-        min-height: 100vh;
+margin-bottom: 100px;
+    }
+    .padding-top-130px {
+        padding-top: 130px;
     }
 
     .sidebar-left {}
@@ -54,6 +60,11 @@
         height: 300px;
         overflow: auto;
     }
+    @media (max-width: 768px) {
+        .padding-top-130px {
+            padding-top: 0px;
+        }
+    }
 </style>
 {% include "components/navbar.html" %}
 <div class="container-fluid">
@@ -67,6 +78,7 @@
             {% include "components/about-me.html" %}
 
             {% include "components/my-works.html" %}
+            {% include "components/my-projects.html" %}
 
         </div>
         <div class="col-1 col-xl-2 d-none d-md-block">
