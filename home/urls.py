@@ -7,4 +7,5 @@ from django.urls import include
 from django.shortcuts import render
 urlpatterns = [
     path('', home, name='home'),
+    path('contact-me/', contact_me, name='contact-me'),
 ]
