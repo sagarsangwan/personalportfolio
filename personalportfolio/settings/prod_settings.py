@@ -9,17 +9,15 @@ load_dotenv("../.env")
 
 
 DEBUG = False
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["vercel.app"]
 
 # db_from_env = dj_database_url.config(conn_max_age=600)
-# DATABASES = {
-#     'default': db_from_env,
-# }
+DATABASES = {}
 # # added because of heroku giving error -app not found
 
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
-WHITENOISE_USE_FINDERS = True
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+# WHITENOISE_USE_FINDERS = True
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = "static/"
