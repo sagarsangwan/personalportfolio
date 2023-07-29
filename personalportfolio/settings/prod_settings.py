@@ -9,7 +9,7 @@ load_dotenv("../.env")
 
 
 DEBUG = False
-ALLOWED_HOSTS = ["vercel.app"]
+ALLOWED_HOSTS = ["vercel.app", "sagarsangwan.vercel.app"]
 
 # db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES = {}
