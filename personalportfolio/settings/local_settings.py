@@ -2,10 +2,13 @@ from .base_settings import *
 import dj_database_url
 
 DEBUG = True
-# ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', ]
-
-
-WHITENOISE_USE_FINDERS = True
-
-# db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        "USER": "",
+        "PASSWORD": "",
+        "HOST": "",  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        "PORT": "",
+    }
+}

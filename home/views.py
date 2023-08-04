@@ -10,9 +10,9 @@ from django.http import JsonResponse
 
 def home(request):
     form = ContactMeForm()
-    # if os.environ.get("MOD") == 'prod':
-    # ip = get_client_ip(request)
-    # upload_user_ip_add = upload_user_ip(ip, request)
+    if os.environ.get("MOD") == "prod":
+        ip = get_client_ip(request)
+        upload_user_ip_add = upload_user_ip(ip, request)
     context = {"form": form}
     return render(request, "pages/home.html", context)
 
@@ -26,9 +26,9 @@ def contact_me(request):
             print(c_user, "exists")
         form = ContactMeForm(request.POST)
         if form.is_valid():
-            # form.save(commit=False)
-            # form.instance.user_ip_address = user_ip
-            # form.save()
+            form.save(commit=False)
+            form.instance.user_ip_address = c_user
+            form.save()
             print(form)
             return JsonResponse({"success": "true"})
         else:
