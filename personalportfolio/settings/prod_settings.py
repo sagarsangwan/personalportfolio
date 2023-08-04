@@ -9,19 +9,6 @@ load_dotenv("../.env")
 
 
 DEBUG = False
-ALLOWED_HOSTS = ["vercel.app", "sagarsangwan.vercel.app"]
-
-# db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES = {}
-# # added because of heroku giving error -app not found
-
-
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
-# WHITENOISE_USE_FINDERS = True
-
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_URL = "static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+ALLOWED_HOSTS = [".vercel.app", "sagarsangwan.vercel.app", ".now.sh"]
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
