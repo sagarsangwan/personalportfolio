@@ -6,6 +6,7 @@ import os
 from .forms import ContactMeForm
 from .models import Contactme, UserIpAddress
 from django.http import JsonResponse
+import json
 
 
 def home(request):
@@ -20,19 +21,40 @@ def home(request):
 def contact_me(request):
     if request.method == "POST":
         c_user = get_client_ip(request)
-        print(c_user)
         if UserIpAddress.objects.filter(user_ip=c_user).exists():
             c_user = UserIpAddress.objects.get(user_ip=c_user)
-            print(c_user, "exists")
-        form = ContactMeForm(request.POST)
-        if form.is_valid():
-            form.save(commit=False)
-            form.instance.user_ip_address = c_user
-            form.save()
-            print(form)
-            return JsonResponse({"success": "true"})
+
+        bdata = json.loads(request.body)
+        name = bdata.get("name")
+        email = bdata.get("email")
+        message = bdata.get("message")
+        print(bdata.get("name"))
+        if name and email and message:
+            new_message = Contactme(
+                user_ip_address=c_user,
+                name=bdata.get("name"),
+                email=bdata.get("email"),
+                message=bdata.get("message"),
+            )
+            new_message.save()
+            data = {"name": name, "email": email, "message": message}
+            print(data)
+            return JsonResponse(data, safe=False)
         else:
-            print(form.errors)
-            return JsonResponse({"error": form.errors}, status=400)
-    else:
-        return JsonResponse({"error": ""}, status=400)
+            return JsonResponse({"error": ""}, status=500)
+
+    #     if UserIpAddress.objects.filter(user_ip=c_user).exists():
+    #         c_user = UserIpAddress.objects.get(user_ip=c_user)
+    #         print(c_user, "exists")
+    #     form = ContactMeForm(request.POST)
+    #     if form.is_valid():
+    #         form.save(commit=False)
+    #         form.instance.user_ip_address = c_user
+    #         form.save()
+    #         print(form)
+    #         return JsonResponse({"success": "true"})
+    #     else:
+    #         print(form.errors)
+    #         return JsonResponse({"error": form.errors}, status=400)
+    # else:
+    #     return JsonResponse({"error": ""}, status=400)
