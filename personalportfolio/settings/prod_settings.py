@@ -12,10 +12,10 @@ DEBUG = False
 ALLOWED_HOSTS = [".vercel.app", "sagarsangwan.vercel.app", ".now.sh"]
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
-
+#
 STATIC_URL = "static/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = "/media/"
+# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+# MEDIA_URL = "/media/"
 
 DATABASES = {
     "default": {
