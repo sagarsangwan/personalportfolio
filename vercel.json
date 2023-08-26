@@ -4,13 +4,13 @@
             "src": "personalportfolio/wsgi.py",
             "use": "@vercel/python",
             "config": {
-                "maxLambdaSize": "15mb",
+                "maxLambdaSize": "30mb",
                 "runtime": "python3.9"
             }
         },
         {
             "src": "build_files.sh",
-            "use": "@vercel/static-build",
+            "use": "@vercel/static",
             "config": {
                 "distDir": "staticfiles_build"
             }
@@ -20,11 +20,6 @@
         {
             "src": "/(.*)",
             "dest": "personalportfolio/wsgi.py"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "personalportfolio/wsgi.py"
         }
-    ],
-    "outputDirectory": "staticfiles_build"
+    ]
 }
