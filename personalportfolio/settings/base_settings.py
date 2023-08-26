@@ -15,7 +15,6 @@ from dotenv import load_dotenv
 import os
 from dotenv import load_dotenv
 from dotenv import load_dotenv
-import dj_database_url
 
 LOGIN_URL = "/accounts/login/"
 
@@ -50,8 +49,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "crispy_forms",
-    "crispy_bootstrap5",
     "home",
     "core",
 ]
