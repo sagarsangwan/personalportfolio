@@ -20,6 +20,11 @@
         {
             "src": "/(.*)",
             "dest": "personalportfolio/wsgi.py"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "social/wsgi.py"
         }
-    ]
+    ],
+    "outputDirectory": "staticfiles_build"
 }
