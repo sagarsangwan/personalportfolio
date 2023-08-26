@@ -23,7 +23,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "social/wsgi.py"
+            "dest": "personalportfolio/wsgi.py"
         }
     ],
     "outputDirectory": "staticfiles_build"
