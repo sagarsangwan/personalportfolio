@@ -10,8 +10,8 @@ load_dotenv("../.env")
 
 DEBUG = False
 ALLOWED_HOSTS = [".vercel.app", "sagarsangwan.vercel.app", ".now.sh"]
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "/static"),)
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "/static")
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "/static/"),)
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
 
 load_dotenv(".env")
 
