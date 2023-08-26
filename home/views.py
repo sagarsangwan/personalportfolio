@@ -11,9 +11,9 @@ import json
 
 def home(request):
     form = ContactMeForm()
-    if os.environ.get("MOD") == "prod":
-        ip = get_client_ip(request)
-        upload_user_ip_add = upload_user_ip(ip, request)
+    # if os.environ.get("MOD") == "prod":
+    ip = get_client_ip(request)
+    upload_user_ip_add = upload_user_ip(ip, request)
     context = {"form": form}
     return render(request, "pages/home.html", context)
 
