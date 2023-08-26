@@ -18,8 +18,7 @@ class UserIpAddress(models.Model):
 
 
 class Contactme(models.Model):
-    user_ip_address = models.ForeignKey(
-        UserIpAddress, on_delete=models.CASCADE)
+    user_ip_address = models.ForeignKey(UserIpAddress, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     message = models.TextField()
