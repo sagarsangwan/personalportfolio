@@ -21,8 +21,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 from django.conf.urls import handler400, handler403, handler404, handler500
-from django.conf import settings
-from django.conf.urls.static import static
 
 urlpatterns = [
     path("", include("home.urls")),
