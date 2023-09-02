@@ -25,7 +25,7 @@ from django.conf.urls import handler400, handler403, handler404, handler500
 urlpatterns = [
     path("", include("home.urls")),
     path("admin/", admin.site.urls),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 # add at the last
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -16,7 +16,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
 STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
-
+print("sagar-------------------------------")
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
