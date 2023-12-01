@@ -10,13 +10,19 @@ load_dotenv("../.env")
 
 DEBUG = False
 ALLOWED_HOSTS = [".vercel.app", "sagarsangwan.vercel.app", ".now.sh"]
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
 #
 STATIC_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 print("sagar-------------------------------")
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+# Configures the staticfiles directory to serve
+# static files from /static/ on our deployment
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles", "static")
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
