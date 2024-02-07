@@ -13,35 +13,50 @@ def home(request):
     form = ContactMeForm()
     # if os.environ.get("MOD") == "prod":
     ip = get_client_ip(request)
-    upload_user_ip_add = upload_user_ip(ip, request)
+    # upload_user_ip_add = upload_user_ip(ip, request)
     context = {"form": form}
     return render(request, "pages/home.html", context)
 
 
 def contact_me(request):
     if request.method == "POST":
-        c_user = get_client_ip(request)
-        if UserIpAddress.objects.filter(user_ip=c_user).exists():
-            c_user = UserIpAddress.objects.get(user_ip=c_user)
-
         bdata = json.loads(request.body)
         name = bdata.get("name")
         email = bdata.get("email")
         message = bdata.get("message")
-        print(bdata.get("name"))
         if name and email and message:
             new_message = Contactme(
-                user_ip_address=c_user,
                 name=bdata.get("name"),
                 email=bdata.get("email"),
                 message=bdata.get("message"),
             )
             new_message.save()
+
             data = {"name": name, "email": email, "message": message}
             print(data)
             return JsonResponse(data, safe=False)
+        error = ""
+        if not name:
+            error = "enter name correctly"
+        elif not email:
+            error = "enter email correctly"
         else:
-            return JsonResponse({"error": ""}, status=500)
+            error = "enter message correctly"
+        return JsonResponse({"error": error}, status=500)
+        # c_user = get_client_ip(request)
+        # if UserIpAddress.objects.filter(user_ip=c_user).exists():
+        #     c_user = UserIpAddress.objects.get(user_ip=c_user)
+
+        #
+        # print(bdata.get("name"))
+        # if name and email and message:
+        #
+        # new_message.save()
+        # data = {"name": name, "email": email, "message": message}
+        # print(data)
+        # return JsonResponse(data, safe=False)
+
+        # return JsonResponse({"error": ""}, status=500)
 
     #     if UserIpAddress.objects.filter(user_ip=c_user).exists():
     #         c_user = UserIpAddress.objects.get(user_ip=c_user)
